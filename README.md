@@ -20,7 +20,8 @@ This project differs from [the project from which it's forked](https://github.co
 1. Create a repository based on this template via the "Use this template" button (you don't fork, a fork is for contributing to this template or creating your own template)
 2. Go to your repository Settings > GitHub Pages > set the source branch to `gh-pages-from-actions`
 3. [Set permissions for GitHub Actions](https://stackoverflow.com/questions/73687176/permission-denied-to-github-actionsbot-the-requested-url-returned-error-403)
-4. View your site at https://[ `your user name` | `your organization name` ].github.io
+4. Enable Dependabot: `Insights` > `Dependency graph` > `Dependabot` > Enable Dependabot
+5. View your site at https://[ `your user name` | `your organization name` ].github.io
 
 ## How it works
 
