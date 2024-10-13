@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using BlazorPages;
 using BlazorPages.Util;
+using Serilog;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
@@ -14,5 +15,9 @@ builder.Services.AddScoped(sp => http);
 var appSettings = await http.GetFromJsonAsync<AppSettings>("appsettings.json", new System.Text.Json.JsonSerializerOptions() { Converters = { new UnknownEnumConverter() } });
 builder.Services.AddSingleton(appSettings ?? new());
 
-await builder.Build().RunAsync
-    ();
+Log.Logger = new LoggerConfiguration()
+    .MinimumLevel.Verbose()
+    .WriteTo.BrowserConsole()
+    .CreateLogger();
+
+await builder.Build().RunAsync();
